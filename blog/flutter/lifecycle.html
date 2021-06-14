@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>页面生命周期 | Liu zhaoxu&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Liuzhaoxu's blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.b5f0b03a.css" as="style"><link rel="preload" href="/assets/js/app.762277e1.js" as="script"><link rel="preload" href="/assets/js/2.5f2964d9.js" as="script"><link rel="preload" href="/assets/js/14.d8dcefbc.js" as="script"><link rel="prefetch" href="/assets/js/10.2ec08ebf.js"><link rel="prefetch" href="/assets/js/11.ff58c6e3.js"><link rel="prefetch" href="/assets/js/12.e70b66f0.js"><link rel="prefetch" href="/assets/js/13.292724e1.js"><link rel="prefetch" href="/assets/js/15.6b420471.js"><link rel="prefetch" href="/assets/js/16.8605f2cf.js"><link rel="prefetch" href="/assets/js/17.5b9549c9.js"><link rel="prefetch" href="/assets/js/18.e73f1769.js"><link rel="prefetch" href="/assets/js/19.ff669057.js"><link rel="prefetch" href="/assets/js/20.76c00674.js"><link rel="prefetch" href="/assets/js/21.5dd850f5.js"><link rel="prefetch" href="/assets/js/22.7f4d114a.js"><link rel="prefetch" href="/assets/js/23.b8458009.js"><link rel="prefetch" href="/assets/js/24.63b5aee1.js"><link rel="prefetch" href="/assets/js/25.d2a084fa.js"><link rel="prefetch" href="/assets/js/26.9ba0000a.js"><link rel="prefetch" href="/assets/js/27.dfc92f69.js"><link rel="prefetch" href="/assets/js/28.def9bbde.js"><link rel="prefetch" href="/assets/js/29.ae8af60c.js"><link rel="prefetch" href="/assets/js/3.e292fe01.js"><link rel="prefetch" href="/assets/js/30.faa2e40e.js"><link rel="prefetch" href="/assets/js/31.1e4349c7.js"><link rel="prefetch" href="/assets/js/32.a0af3df7.js"><link rel="prefetch" href="/assets/js/33.05f01ba8.js"><link rel="prefetch" href="/assets/js/34.11877fc1.js"><link rel="prefetch" href="/assets/js/35.fb49bb9a.js"><link rel="prefetch" href="/assets/js/36.c219418f.js"><link rel="prefetch" href="/assets/js/37.c925138f.js"><link rel="prefetch" href="/assets/js/38.25a6825e.js"><link rel="prefetch" href="/assets/js/39.efa0ad16.js"><link rel="prefetch" href="/assets/js/4.18b7f171.js"><link rel="prefetch" href="/assets/js/40.531feb98.js"><link rel="prefetch" href="/assets/js/41.c7aee532.js"><link rel="prefetch" href="/assets/js/42.f4119d90.js"><link rel="prefetch" href="/assets/js/43.45500d5d.js"><link rel="prefetch" href="/assets/js/44.192939b3.js"><link rel="prefetch" href="/assets/js/45.822f56c3.js"><link rel="prefetch" href="/assets/js/46.9ae8728d.js"><link rel="prefetch" href="/assets/js/47.992292a6.js"><link rel="prefetch" href="/assets/js/48.a4e6455f.js"><link rel="prefetch" href="/assets/js/49.f2ab3dd4.js"><link rel="prefetch" href="/assets/js/5.718994b1.js"><link rel="prefetch" href="/assets/js/50.d081fd4e.js"><link rel="prefetch" href="/assets/js/51.0a30c8db.js"><link rel="prefetch" href="/assets/js/52.42bbe9cb.js"><link rel="prefetch" href="/assets/js/53.ead41259.js"><link rel="prefetch" href="/assets/js/54.a52be492.js"><link rel="prefetch" href="/assets/js/55.34759a02.js"><link rel="prefetch" href="/assets/js/56.d4e3086f.js"><link rel="prefetch" href="/assets/js/57.65b84ad5.js"><link rel="prefetch" href="/assets/js/58.c8e63f4f.js"><link rel="prefetch" href="/assets/js/59.0df5a283.js"><link rel="prefetch" href="/assets/js/6.eafd2c6f.js"><link rel="prefetch" href="/assets/js/60.20330dc3.js"><link rel="prefetch" href="/assets/js/61.dc476f1f.js"><link rel="prefetch" href="/assets/js/62.fa57d1ae.js"><link rel="prefetch" href="/assets/js/63.d5567b4e.js"><link rel="prefetch" href="/assets/js/64.c41cbc06.js"><link rel="prefetch" href="/assets/js/65.0dbe0066.js"><link rel="prefetch" href="/assets/js/66.f0a7a399.js"><link rel="prefetch" href="/assets/js/67.165ee4ea.js"><link rel="prefetch" href="/assets/js/68.e3017d0e.js"><link rel="prefetch" href="/assets/js/69.5633c79b.js"><link rel="prefetch" href="/assets/js/7.8f0eb6fa.js"><link rel="prefetch" href="/assets/js/70.b06ce9be.js"><link rel="prefetch" href="/assets/js/71.b8e87031.js"><link rel="prefetch" href="/assets/js/72.3f47dfcf.js"><link rel="prefetch" href="/assets/js/73.5518711e.js"><link rel="prefetch" href="/assets/js/74.9da1d25c.js"><link rel="prefetch" href="/assets/js/75.027356d7.js"><link rel="prefetch" href="/assets/js/76.8c7f700a.js"><link rel="prefetch" href="/assets/js/77.a0025ec2.js"><link rel="prefetch" href="/assets/js/78.1279d644.js"><link rel="prefetch" href="/assets/js/79.61341dcc.js"><link rel="prefetch" href="/assets/js/8.62d27c9d.js"><link rel="prefetch" href="/assets/js/80.b041a233.js"><link rel="prefetch" href="/assets/js/81.79f3064e.js"><link rel="prefetch" href="/assets/js/82.19413210.js"><link rel="prefetch" href="/assets/js/83.afc18483.js"><link rel="prefetch" href="/assets/js/84.52187f93.js"><link rel="prefetch" href="/assets/js/85.6593fa7c.js"><link rel="prefetch" href="/assets/js/9.36ba13ed.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b5f0b03a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Liu zhaoxu's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/webpack/introduction.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/blog/go/lesson1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/blog/spider/introduction.html" class="nav-link">
+  spider
+</a></li><li class="dropdown-item"><!----> <a href="/blog/https/introduction.html" class="nav-link">
+  https
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tensorflow/introduction.html" class="nav-link">
+  tensorflow
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="视频笔记" class="dropdown-title"><span class="title">视频笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="视频笔记" class="mobile-dropdown-title"><span class="title">视频笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/video/algorithm/8.html" class="nav-link">
+  极客时间: 算法训练营
+</a></li><li class="dropdown-item"><!----> <a href="/video/java/1.html" class="nav-link">
+  零基础学Java
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/webpack/introduction.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/blog/go/lesson1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/blog/spider/introduction.html" class="nav-link">
+  spider
+</a></li><li class="dropdown-item"><!----> <a href="/blog/https/introduction.html" class="nav-link">
+  https
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tensorflow/introduction.html" class="nav-link">
+  tensorflow
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="视频笔记" class="dropdown-title"><span class="title">视频笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="视频笔记" class="mobile-dropdown-title"><span class="title">视频笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/video/algorithm/8.html" class="nav-link">
+  极客时间: 算法训练营
+</a></li><li class="dropdown-item"><!----> <a href="/video/java/1.html" class="nav-link">
+  零基础学Java
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webpack 5.x</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>flutter</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/flutter/init.html" class="sidebar-link">如何快速搭建 flutter 项目</a></li><li><a href="/blog/flutter/package.html" class="sidebar-link">如何使用 flutter 包和插件?</a></li><li><a href="/blog/flutter/layout.html" class="sidebar-link">如何进行 Flutter 布局开发</a></li><li><a href="/blog/flutter/route.html" class="sidebar-link">如何创建和使用 Flutter 路由与导航?</a></li><li><a href="/blog/flutter/app.html" class="sidebar-link">打开第三方 app</a></li><li><a href="/blog/flutter/lifecycle.html" aria-current="page" class="active sidebar-link">页面生命周期</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/flutter/lifecycle.html#页面生命周期" class="sidebar-link">页面生命周期</a></li><li class="sidebar-sub-header"><a href="/blog/flutter/lifecycle.html#app-生命周期" class="sidebar-link">App 生命周期</a></li></ul></li><li><a href="/blog/flutter/widget.html" class="sidebar-link">StatelessWidget 和 StatefulWidget</a></li><li><a href="/blog/flutter/dart.html" class="sidebar-link">Dart</a></li><li><a href="/blog/flutter/usage.html" class="sidebar-link">常用用法</a></li><li><a href="/blog/flutter/components.html" class="sidebar-link">常用组件</a></li><li><a href="/blog/flutter/example.html" class="sidebar-link">示例</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>go</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>spider</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>tensorflow</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="页面生命周期"><a href="#页面生命周期" class="header-anchor">#</a> 页面生命周期</h2> <p><img src="https://raw.githubusercontent.com/chenBingX/img/master/Flutter/State%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.png" alt=""></p> <ol><li>初始化时期</li></ol> <ul><li><p><code>createState</code>: Framework 调用会通过调用 createState 来创建一个 State。</p></li> <li><p><code>initState</code>: 新创建的 State 会和一个 BuildContext 产生关联，此时认为 State 已经被安装好了，initState() 函数将会被调用。</p></li></ul> <ol start="2"><li><p>更新时期</p> <ul><li><p><code>didChangeDependencies</code>:在 initState() 调用结束后，这个函数会被调用。事实上，当 State 对象的依赖关系发生变化时，这个函数总会被 Framework 调用。</p></li> <li><p><code>build</code>: 经过以上步骤，系统认为一个 State 已经准备好了，就会调用 build() 来构建视图。我们需要在这个函数中，返回一个 Widget。</p></li> <li><p><code>didUpdateWidget</code>:当 widget 的配置发生变化时，会调用这个函数。比如，Hot-reload 的时候就会调用这个函数。这个函数调用后，会调用 build()。</p></li></ul></li> <li><p>销毁时期</p> <ul><li><p><code>deactivate</code>: 当 State 被暂时从视图树中移除时，会调用这个函数。页面切换时，也会调用它，因为此时 State 在视图树中的位置发生了变化，需要先暂时移除后添加。</p></li> <li><p><code>dispose</code>:当 State 被永久的从视图树中移除，Framework 会调用该函数。在销毁前触发，我们可以在这里进行最终的资源释放。在调用这个函数之前，总会先调用 deactivate()。</p></li></ul></li></ol> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>重写的时候必须要调用 super.xxx()。</p></div> <p>示例:</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">import</span> <span class="token string">'package:flutter/cupertino.dart'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">WidgetLifecyle</span> <span class="token keyword">extends</span> <span class="token class-name">StatefulWidget</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 当构建一个新的widget时,这个会立即调用</span>
+  <span class="token comment">// 并且这个方法必须被覆盖</span>
+  <span class="token metadata symbol">@override</span>
+  _WidgetLifecyleState <span class="token function">createState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">_WidgetLifecyleState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">_WidgetLifecyleState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>WidgetLifecyle<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  int _count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 这是创建widget时调用的除构造方法外的第一个方法</span>
+  <span class="token comment">// 通常会做一些初始化工作,比如channel的初始化,监听器的初始化等</span>
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">initState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'-----initState-----'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">initState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 依赖变化时调用</span>
+  <span class="token comment">// 1: initstate初始化之后会立即调用</span>
+  <span class="token comment">// 2: 如果statefulwidgets依赖于InheritedWidget时, InheritedWidget变化时也会触发</span>
+  <span class="token comment">// InheritedWidget类似vuex, 高效的将数据在Widget树中向下传递和共享</span>
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">didChangeDependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'------didChangeDependencies-----'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">didChangeDependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 这个一个必须实现的方法,相当于mounted</span>
+  <span class="token comment">// 他会在didChangeDependencies()之后立即调用</span>
+  <span class="token comment">// 另外当调用setState后也会再次调用该方法</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'-----build-----'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+	  appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+		title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Flutter页面生命周期'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		leading<span class="token punctuation">:</span> <span class="token function">BackButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  <span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  body<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>
+		  child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+		<span class="token function">RaisedButton</span><span class="token punctuation">(</span>
+		  onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			  _count <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+		  child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'点我'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token function">Text</span><span class="token punctuation">(</span>_count<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">didUpdateWidget</span><span class="token punctuation">(</span><span class="token keyword">covariant</span> WidgetLifecyle oldWidget<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'------didUpdateWidget------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">didUpdateWidget</span><span class="token punctuation">(</span>oldWidget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 很少使用,在组件被移除时调用</span>
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">deactivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'-----deactivate-----'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">deactivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 组件被销毁时调用</span>
+  <span class="token comment">// 作用: 资源的释放, 监听器的卸载, channel的销毁等</span>
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'------dispose------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="app-生命周期"><a href="#app-生命周期" class="header-anchor">#</a> App 生命周期</h2> <p>App 生命周期定义了 App 从启动到退出的全过程，其回调机制能够让我们可以根据 App 状态选择合适的时机做恰当的事情。</p> <ul><li>resumed：可见的，并能响应用户的输入。</li> <li>inactive：处在不活动状态，无法处理用户响应。</li> <li>paused：不可见并不能响应用户的输入，但是在后台继续活动中。</li></ul> <p><strong>举例:</strong></p> <p>initState 中注册监听器，在 didChangeAppLifecycleState 回调方法中打印当前 App 状态，最后在 dispose 中移除监听器。</p> <div class="language-dart extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br></div><pre class="language-dart"><code><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 如何获取Flutter应用生命周期</span>
+<span class="token comment">// WidgetsBindingObserver: 是一个Widgets绑定观察器, 通过它我们可以监听应用的生命周期</span>
+<span class="token keyword">class</span> <span class="token class-name">AppLiftcycle</span> <span class="token keyword">extends</span> <span class="token class-name">StatefulWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  _AppLiftcycleState <span class="token function">createState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">_AppLiftcycleState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">_AppLiftcycleState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>AppLiftcycle<span class="token operator">&gt;</span>
+	<span class="token keyword">with</span> WidgetsBindingObserver <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+
+  <span class="token comment">// 初始化state</span>
+  <span class="token keyword">void</span> <span class="token function">initState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	WidgetsBinding<span class="token punctuation">.</span>instance<span class="token punctuation">.</span><span class="token function">addObserver</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">initState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 构建视图</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+	  appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+		title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'App生命周期'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		leading<span class="token punctuation">:</span> <span class="token function">GestureDetector</span><span class="token punctuation">(</span>
+		  onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			Navigator<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+		  child<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>arrow_back<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  <span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  body<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'App生命周期'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 当app生命周期发生变化时, 会回调这个方法</span>
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">didChangeAppLifecycleState</span><span class="token punctuation">(</span>AppLifecycleState state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">didChangeAppLifecycleState</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'state = $state'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> AppLifecycleState<span class="token punctuation">.</span>paused<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'App进入后台'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> AppLifecycleState<span class="token punctuation">.</span>resumed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'App进入前台'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> AppLifecycleState<span class="token punctuation">.</span>inactive<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'App处于非活动状态, 比如:来了个电话'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 销毁监听器</span>
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	WidgetsBinding<span class="token punctuation">.</span>instance<span class="token punctuation">.</span><span class="token function">removeObserver</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/flutter/app.html" class="prev">
+        打开第三方 app
+      </a></span> <span class="next"><a href="/blog/flutter/widget.html">
+        StatelessWidget 和 StatefulWidget
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.762277e1.js" defer></script><script src="/assets/js/2.5f2964d9.js" defer></script><script src="/assets/js/14.d8dcefbc.js" defer></script>
+  </body>
+</html>

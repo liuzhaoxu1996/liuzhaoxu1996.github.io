@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>8. 布隆过滤器(Bloom Filter)的原理和实现 | Liu zhaoxu&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Liuzhaoxu's blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.b5f0b03a.css" as="style"><link rel="preload" href="/assets/js/app.762277e1.js" as="script"><link rel="preload" href="/assets/js/2.5f2964d9.js" as="script"><link rel="preload" href="/assets/js/63.d5567b4e.js" as="script"><link rel="prefetch" href="/assets/js/10.2ec08ebf.js"><link rel="prefetch" href="/assets/js/11.ff58c6e3.js"><link rel="prefetch" href="/assets/js/12.e70b66f0.js"><link rel="prefetch" href="/assets/js/13.292724e1.js"><link rel="prefetch" href="/assets/js/14.d8dcefbc.js"><link rel="prefetch" href="/assets/js/15.6b420471.js"><link rel="prefetch" href="/assets/js/16.8605f2cf.js"><link rel="prefetch" href="/assets/js/17.5b9549c9.js"><link rel="prefetch" href="/assets/js/18.e73f1769.js"><link rel="prefetch" href="/assets/js/19.ff669057.js"><link rel="prefetch" href="/assets/js/20.76c00674.js"><link rel="prefetch" href="/assets/js/21.5dd850f5.js"><link rel="prefetch" href="/assets/js/22.7f4d114a.js"><link rel="prefetch" href="/assets/js/23.b8458009.js"><link rel="prefetch" href="/assets/js/24.63b5aee1.js"><link rel="prefetch" href="/assets/js/25.d2a084fa.js"><link rel="prefetch" href="/assets/js/26.9ba0000a.js"><link rel="prefetch" href="/assets/js/27.dfc92f69.js"><link rel="prefetch" href="/assets/js/28.def9bbde.js"><link rel="prefetch" href="/assets/js/29.ae8af60c.js"><link rel="prefetch" href="/assets/js/3.e292fe01.js"><link rel="prefetch" href="/assets/js/30.faa2e40e.js"><link rel="prefetch" href="/assets/js/31.1e4349c7.js"><link rel="prefetch" href="/assets/js/32.a0af3df7.js"><link rel="prefetch" href="/assets/js/33.05f01ba8.js"><link rel="prefetch" href="/assets/js/34.11877fc1.js"><link rel="prefetch" href="/assets/js/35.fb49bb9a.js"><link rel="prefetch" href="/assets/js/36.c219418f.js"><link rel="prefetch" href="/assets/js/37.c925138f.js"><link rel="prefetch" href="/assets/js/38.25a6825e.js"><link rel="prefetch" href="/assets/js/39.efa0ad16.js"><link rel="prefetch" href="/assets/js/4.18b7f171.js"><link rel="prefetch" href="/assets/js/40.531feb98.js"><link rel="prefetch" href="/assets/js/41.c7aee532.js"><link rel="prefetch" href="/assets/js/42.f4119d90.js"><link rel="prefetch" href="/assets/js/43.45500d5d.js"><link rel="prefetch" href="/assets/js/44.192939b3.js"><link rel="prefetch" href="/assets/js/45.822f56c3.js"><link rel="prefetch" href="/assets/js/46.9ae8728d.js"><link rel="prefetch" href="/assets/js/47.992292a6.js"><link rel="prefetch" href="/assets/js/48.a4e6455f.js"><link rel="prefetch" href="/assets/js/49.f2ab3dd4.js"><link rel="prefetch" href="/assets/js/5.718994b1.js"><link rel="prefetch" href="/assets/js/50.d081fd4e.js"><link rel="prefetch" href="/assets/js/51.0a30c8db.js"><link rel="prefetch" href="/assets/js/52.42bbe9cb.js"><link rel="prefetch" href="/assets/js/53.ead41259.js"><link rel="prefetch" href="/assets/js/54.a52be492.js"><link rel="prefetch" href="/assets/js/55.34759a02.js"><link rel="prefetch" href="/assets/js/56.d4e3086f.js"><link rel="prefetch" href="/assets/js/57.65b84ad5.js"><link rel="prefetch" href="/assets/js/58.c8e63f4f.js"><link rel="prefetch" href="/assets/js/59.0df5a283.js"><link rel="prefetch" href="/assets/js/6.eafd2c6f.js"><link rel="prefetch" href="/assets/js/60.20330dc3.js"><link rel="prefetch" href="/assets/js/61.dc476f1f.js"><link rel="prefetch" href="/assets/js/62.fa57d1ae.js"><link rel="prefetch" href="/assets/js/64.c41cbc06.js"><link rel="prefetch" href="/assets/js/65.0dbe0066.js"><link rel="prefetch" href="/assets/js/66.f0a7a399.js"><link rel="prefetch" href="/assets/js/67.165ee4ea.js"><link rel="prefetch" href="/assets/js/68.e3017d0e.js"><link rel="prefetch" href="/assets/js/69.5633c79b.js"><link rel="prefetch" href="/assets/js/7.8f0eb6fa.js"><link rel="prefetch" href="/assets/js/70.b06ce9be.js"><link rel="prefetch" href="/assets/js/71.b8e87031.js"><link rel="prefetch" href="/assets/js/72.3f47dfcf.js"><link rel="prefetch" href="/assets/js/73.5518711e.js"><link rel="prefetch" href="/assets/js/74.9da1d25c.js"><link rel="prefetch" href="/assets/js/75.027356d7.js"><link rel="prefetch" href="/assets/js/76.8c7f700a.js"><link rel="prefetch" href="/assets/js/77.a0025ec2.js"><link rel="prefetch" href="/assets/js/78.1279d644.js"><link rel="prefetch" href="/assets/js/79.61341dcc.js"><link rel="prefetch" href="/assets/js/8.62d27c9d.js"><link rel="prefetch" href="/assets/js/80.b041a233.js"><link rel="prefetch" href="/assets/js/81.79f3064e.js"><link rel="prefetch" href="/assets/js/82.19413210.js"><link rel="prefetch" href="/assets/js/83.afc18483.js"><link rel="prefetch" href="/assets/js/84.52187f93.js"><link rel="prefetch" href="/assets/js/85.6593fa7c.js"><link rel="prefetch" href="/assets/js/9.36ba13ed.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b5f0b03a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Liu zhaoxu's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/webpack/introduction.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/blog/go/lesson1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/blog/spider/introduction.html" class="nav-link">
+  spider
+</a></li><li class="dropdown-item"><!----> <a href="/blog/https/introduction.html" class="nav-link">
+  https
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tensorflow/introduction.html" class="nav-link">
+  tensorflow
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="视频笔记" class="dropdown-title"><span class="title">视频笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="视频笔记" class="mobile-dropdown-title"><span class="title">视频笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/video/algorithm/8.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  极客时间: 算法训练营
+</a></li><li class="dropdown-item"><!----> <a href="/video/java/1.html" class="nav-link">
+  零基础学Java
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/webpack/introduction.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/blog/go/lesson1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/blog/spider/introduction.html" class="nav-link">
+  spider
+</a></li><li class="dropdown-item"><!----> <a href="/blog/https/introduction.html" class="nav-link">
+  https
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tensorflow/introduction.html" class="nav-link">
+  tensorflow
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="视频笔记" class="dropdown-title"><span class="title">视频笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="视频笔记" class="mobile-dropdown-title"><span class="title">视频笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/video/algorithm/8.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  极客时间: 算法训练营
+</a></li><li class="dropdown-item"><!----> <a href="/video/java/1.html" class="nav-link">
+  零基础学Java
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>极客时间: 算法训练营</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/video/algorithm/2.html" class="sidebar-link">2. 哈希表 映射 集合</a></li><li><a href="/video/algorithm/3.html" class="sidebar-link">3. 树、二叉树、二叉搜索树的实现和特性</a></li><li><a href="/video/algorithm/4.html" class="sidebar-link">4. 图的实现和特性</a></li><li><a href="/video/algorithm/8.html" aria-current="page" class="active sidebar-link">8. 布隆过滤器(Bloom Filter)的原理和实现</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#什么情况下需要布隆过滤器" class="sidebar-link">什么情况下需要布隆过滤器？</a></li><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#常规思路" class="sidebar-link">常规思路</a></li><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#哈希函数" class="sidebar-link">哈希函数</a></li><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#布隆过滤器介绍" class="sidebar-link">布隆过滤器介绍</a></li><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#布隆过滤器原理" class="sidebar-link">布隆过滤器原理</a></li><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#布隆过滤器添加元素" class="sidebar-link">布隆过滤器添加元素</a></li><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#布隆过滤器查询元素" class="sidebar-link">布隆过滤器查询元素</a></li><li class="sidebar-sub-header"><a href="/video/algorithm/8.html#布隆过滤器实现" class="sidebar-link">布隆过滤器实现</a></li></ul></li><li><a href="/video/algorithm/9.html" class="sidebar-link">9. LRU Cache的实现、应用和题解</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_8-布隆过滤器-bloom-filter-的原理和实现"><a href="#_8-布隆过滤器-bloom-filter-的原理和实现" class="header-anchor">#</a> 8. 布隆过滤器(Bloom Filter)的原理和实现</h1> <h2 id="什么情况下需要布隆过滤器"><a href="#什么情况下需要布隆过滤器" class="header-anchor">#</a> 什么情况下需要布隆过滤器？</h2> <p>先来看几个比较常见的例子</p> <ul><li>字处理软件中，需要检查一个英语单词是否拼写正确</li> <li>在 FBI，一个嫌疑人的名字是否已经在嫌疑名单上</li> <li>在网络爬虫里，一个网址是否被访问过</li> <li>yahoo, gmail等邮箱垃圾邮件过滤功能</li></ul> <p>这几个例子有一个共同的特点： 如何判断一个元素是否存在一个集合中？</p> <h2 id="常规思路"><a href="#常规思路" class="header-anchor">#</a> 常规思路</h2> <ul><li>数组</li> <li>链表</li> <li>树、平衡二叉树、Trie</li> <li>Map (红黑树)</li> <li>哈希表</li></ul> <p>虽然上面描述的这几种数据结构配合常见的排序、二分搜索可以快速高效的处理绝大部分判断元素是否存在集合中的需求。但是当集合里面的元素数量足够大，如果有500万条记录甚至1亿条记录呢？这个时候常规的数据结构的问题就凸显出来了。数组、链表、树等数据结构会存储元素的内容，一旦数据量过大，消耗的内存也会呈现线性增长，最终达到瓶颈。有的同学可能会问，哈希表不是效率很高吗？查询效率可以达到O(1)。但是哈希表需要消耗的内存依然很高。使用哈希表存储一亿 个垃圾 email 地址的消耗？哈希表的做法：首先，哈希函数将一个email地址映射成8字节信息指纹；考虑到哈希表存储效率通常小于50%（哈希冲突）；因此消耗的内存：8 * 2 * 1亿 字节 = 1.6G 内存，普通计算机是无法提供如此大的内存。这个时候，布隆过滤器（Bloom Filter）就应运而生。在继续介绍布隆过滤器的原理时，先讲解下关于哈希函数的预备知识。</p> <h2 id="哈希函数"><a href="#哈希函数" class="header-anchor">#</a> 哈希函数</h2> <p>哈希函数的概念是：将任意大小的数据转换成特定大小的数据的函数，转换后的数据称为哈希值或哈希编码。下面是一幅示意图：</p> <p>可以明显的看到，原始数据经过哈希函数的映射后称为了一个个的哈希编码，数据得到压缩。哈希函数是实现哈希表和布隆过滤器的基础。</p> <h2 id="布隆过滤器介绍"><a href="#布隆过滤器介绍" class="header-anchor">#</a> 布隆过滤器介绍</h2> <ul><li>巴顿.布隆于一九七零年提出</li> <li>一个很长的二进制向量 （位数组）</li> <li>一系列随机函数 (哈希)</li> <li>空间效率和查询效率高</li> <li>有一定的误判率（哈希表是精确匹配）</li></ul> <h2 id="布隆过滤器原理"><a href="#布隆过滤器原理" class="header-anchor">#</a> 布隆过滤器原理</h2> <p>布隆过滤器（Bloom Filter）的核心实现是一个超大的位数组和几个哈希函数。假设位数组的长度为m，哈希函数的个数为k</p> <p>以上图为例，具体的操作流程：假设集合里面有3个元素{x, y, z}，哈希函数的个数为3。首先将位数组进行初始化，将里面每个位都设置位0。对于集合里面的每一个元素，将元素依次通过3个哈希函数进行映射，每次映射都会产生一个哈希值，这个值对应位数组上面的一个点，然后将位数组对应的位置标记为1。查询W元素是否存在集合中的时候，同样的方法将W通过哈希映射到位数组上的3个点。如果3个点的其中有一个点不为1，则可以判断该元素一定不存在集合中。反之，如果3个点都为1，则该元素可能存在集合中。注意：此处不能判断该元素是否一定存在集合中，可能存在一定的误判率。可以从图中可以看到：假设某个元素通过映射对应下标为4，5，6这3个点。虽然这3个点都为1，但是很明显这3个点是不同元素经过哈希得到的位置，因此这种情况说明元素虽然不在集合中，也可能对应的都是1，这是误判率存在的原因。</p> <h2 id="布隆过滤器添加元素"><a href="#布隆过滤器添加元素" class="header-anchor">#</a> 布隆过滤器添加元素</h2> <ul><li>将要添加的元素给k个哈希函数</li> <li>得到对应于位数组上的k个位置</li> <li>将这k个位置设为1</li></ul> <h2 id="布隆过滤器查询元素"><a href="#布隆过滤器查询元素" class="header-anchor">#</a> 布隆过滤器查询元素</h2> <ul><li>将要查询的元素给k个哈希函数</li> <li>得到对应于位数组上的k个位置</li> <li>如果k个位置有一个为0，则肯定不在集合中</li> <li>如果k个位置全部为1，则可能在集合中</li></ul> <h2 id="布隆过滤器实现"><a href="#布隆过滤器实现" class="header-anchor">#</a> 布隆过滤器实现</h2> <p>下面给出python的实现，使用murmurhash算法</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> mmh3
+<span class="token keyword">from</span> bitarray <span class="token keyword">import</span> bitarray
+
+
+<span class="token comment"># zhihu_crawler.bloom_filter</span>
+
+<span class="token comment"># Implement a simple bloom filter with murmurhash algorithm.</span>
+<span class="token comment"># Bloom filter is used to check wether an element exists in a collection, and it has a good performance in big data situation.</span>
+<span class="token comment"># It may has positive rate depend on hash functions and elements count.</span>
+
+
+
+BIT_SIZE <span class="token operator">=</span> <span class="token number">5000000</span>
+
+<span class="token keyword">class</span> <span class="token class-name">BloomFilter</span><span class="token punctuation">:</span>
+    
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Initialize bloom filter, set size and all bits to 0</span>
+        bit_array <span class="token operator">=</span> bitarray<span class="token punctuation">(</span>BIT_SIZE<span class="token punctuation">)</span>
+        bit_array<span class="token punctuation">.</span>setall<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>bit_array <span class="token operator">=</span> bit_array
+        
+    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Add a url, and set points in bitarray to 1 (Points count is equal to hash funcs count.)</span>
+        <span class="token comment"># Here use 7 hash functions.</span>
+        point_list <span class="token operator">=</span> self<span class="token punctuation">.</span>get_postions<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> b <span class="token keyword">in</span> point_list<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>bit_array<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token keyword">def</span> <span class="token function">contains</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Check if a url is in a collection</span>
+        point_list <span class="token operator">=</span> self<span class="token punctuation">.</span>get_postions<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+        result <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">for</span> b <span class="token keyword">in</span> point_list<span class="token punctuation">:</span>
+            result <span class="token operator">=</span> result <span class="token keyword">and</span> self<span class="token punctuation">.</span>bit_array<span class="token punctuation">[</span>b<span class="token punctuation">]</span>
+    
+        <span class="token keyword">return</span> result
+
+    <span class="token keyword">def</span> <span class="token function">get_postions</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Get points positions in bit vector.</span>
+        point1 <span class="token operator">=</span> mmh3<span class="token punctuation">.</span><span class="token builtin">hash</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token number">41</span><span class="token punctuation">)</span> <span class="token operator">%</span> BIT_SIZE
+        point2 <span class="token operator">=</span> mmh3<span class="token punctuation">.</span><span class="token builtin">hash</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span> <span class="token operator">%</span> BIT_SIZE
+        point3 <span class="token operator">=</span> mmh3<span class="token punctuation">.</span><span class="token builtin">hash</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token number">43</span><span class="token punctuation">)</span> <span class="token operator">%</span> BIT_SIZE
+        point4 <span class="token operator">=</span> mmh3<span class="token punctuation">.</span><span class="token builtin">hash</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">)</span> <span class="token operator">%</span> BIT_SIZE
+        point5 <span class="token operator">=</span> mmh3<span class="token punctuation">.</span><span class="token builtin">hash</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">)</span> <span class="token operator">%</span> BIT_SIZE
+        point6 <span class="token operator">=</span> mmh3<span class="token punctuation">.</span><span class="token builtin">hash</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token number">46</span><span class="token punctuation">)</span> <span class="token operator">%</span> BIT_SIZE
+        point7 <span class="token operator">=</span> mmh3<span class="token punctuation">.</span><span class="token builtin">hash</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token number">47</span><span class="token punctuation">)</span> <span class="token operator">%</span> BIT_SIZE
+
+
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>point1<span class="token punctuation">,</span> point2<span class="token punctuation">,</span> point3<span class="token punctuation">,</span> point4<span class="token punctuation">,</span> point5<span class="token punctuation">,</span> point6<span class="token punctuation">,</span> point7<span class="token punctuation">]</span>
+</code></pre></div><p><a href="https://github.com/cpselvis/zhihu-crawler/blob/master/bloom_filter.py" target="_blank" rel="noopener noreferrer">布隆过滤器的原理和实现<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://blog.csdn.net/tianyaleixiaowu/article/details/74721877" target="_blank" rel="noopener noreferrer">使用布隆过滤器解决缓存击穿、垃圾邮件识别、集合判重<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/video/algorithm/4.html" class="prev">
+        4. 图的实现和特性
+      </a></span> <span class="next"><a href="/video/algorithm/9.html">
+        9. LRU Cache的实现、应用和题解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.762277e1.js" defer></script><script src="/assets/js/2.5f2964d9.js" defer></script><script src="/assets/js/63.d5567b4e.js" defer></script>
+  </body>
+</html>
