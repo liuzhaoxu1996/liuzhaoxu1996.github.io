@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IntersectionObserver API | Zhaoxu Liu</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Zhaoxu Liu">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.b5f0b03a.css" as="style"><link rel="preload" href="/assets/js/app.07bc8ac9.js" as="script"><link rel="preload" href="/assets/js/2.54df97aa.js" as="script"><link rel="preload" href="/assets/js/12.5d143ad4.js" as="script"><link rel="prefetch" href="/assets/js/10.f289ec56.js"><link rel="prefetch" href="/assets/js/100.9d553a15.js"><link rel="prefetch" href="/assets/js/101.30d35580.js"><link rel="prefetch" href="/assets/js/102.b5ba3877.js"><link rel="prefetch" href="/assets/js/103.5f080aeb.js"><link rel="prefetch" href="/assets/js/104.ab7af729.js"><link rel="prefetch" href="/assets/js/105.93deeee5.js"><link rel="prefetch" href="/assets/js/106.bc89b6d0.js"><link rel="prefetch" href="/assets/js/107.dac720bd.js"><link rel="prefetch" href="/assets/js/108.1f3bb1dd.js"><link rel="prefetch" href="/assets/js/109.4ceac602.js"><link rel="prefetch" href="/assets/js/11.e64c384a.js"><link rel="prefetch" href="/assets/js/110.4605645b.js"><link rel="prefetch" href="/assets/js/111.cc1ef84e.js"><link rel="prefetch" href="/assets/js/13.6227cbaa.js"><link rel="prefetch" href="/assets/js/14.d52677da.js"><link rel="prefetch" href="/assets/js/15.4fa77a68.js"><link rel="prefetch" href="/assets/js/16.57c8322b.js"><link rel="prefetch" href="/assets/js/17.4b245436.js"><link rel="prefetch" href="/assets/js/18.1b195508.js"><link rel="prefetch" href="/assets/js/19.db2151d7.js"><link rel="prefetch" href="/assets/js/20.f3f9df2a.js"><link rel="prefetch" href="/assets/js/21.51f62eb2.js"><link rel="prefetch" href="/assets/js/22.977925cc.js"><link rel="prefetch" href="/assets/js/23.8efab876.js"><link rel="prefetch" href="/assets/js/24.4ee586eb.js"><link rel="prefetch" href="/assets/js/25.11ba3208.js"><link rel="prefetch" href="/assets/js/26.1de172c6.js"><link rel="prefetch" href="/assets/js/27.f0311b69.js"><link rel="prefetch" href="/assets/js/28.fae550dc.js"><link rel="prefetch" href="/assets/js/29.7b8b91e6.js"><link rel="prefetch" href="/assets/js/3.1a64a66a.js"><link rel="prefetch" href="/assets/js/30.0e1868ab.js"><link rel="prefetch" href="/assets/js/31.06222bc4.js"><link rel="prefetch" href="/assets/js/32.47450fe1.js"><link rel="prefetch" href="/assets/js/33.bacbefde.js"><link rel="prefetch" href="/assets/js/34.27dd37c1.js"><link rel="prefetch" href="/assets/js/35.0b361b38.js"><link rel="prefetch" href="/assets/js/36.691f2c9d.js"><link rel="prefetch" href="/assets/js/37.19d2da36.js"><link rel="prefetch" href="/assets/js/38.8ec9b94d.js"><link rel="prefetch" href="/assets/js/39.fabfcff6.js"><link rel="prefetch" href="/assets/js/4.18b7f171.js"><link rel="prefetch" href="/assets/js/40.3dc66611.js"><link rel="prefetch" href="/assets/js/41.889ab4e5.js"><link rel="prefetch" href="/assets/js/42.33865746.js"><link rel="prefetch" href="/assets/js/43.2073ebe1.js"><link rel="prefetch" href="/assets/js/44.0fbfc8ea.js"><link rel="prefetch" href="/assets/js/45.c5795cee.js"><link rel="prefetch" href="/assets/js/46.3ab420b3.js"><link rel="prefetch" href="/assets/js/47.b447b4a8.js"><link rel="prefetch" href="/assets/js/48.f7c3f597.js"><link rel="prefetch" href="/assets/js/49.9d165572.js"><link rel="prefetch" href="/assets/js/5.718994b1.js"><link rel="prefetch" href="/assets/js/50.3cc9de09.js"><link rel="prefetch" href="/assets/js/51.472663c3.js"><link rel="prefetch" href="/assets/js/52.11796b68.js"><link rel="prefetch" href="/assets/js/53.b1e7bf26.js"><link rel="prefetch" href="/assets/js/54.0fcce785.js"><link rel="prefetch" href="/assets/js/55.1d1cc58b.js"><link rel="prefetch" href="/assets/js/56.413107d6.js"><link rel="prefetch" href="/assets/js/57.705d29b5.js"><link rel="prefetch" href="/assets/js/58.69b8f4be.js"><link rel="prefetch" href="/assets/js/59.dc4ad713.js"><link rel="prefetch" href="/assets/js/6.eafd2c6f.js"><link rel="prefetch" href="/assets/js/60.03da4f70.js"><link rel="prefetch" href="/assets/js/61.dcae5138.js"><link rel="prefetch" href="/assets/js/62.b5787962.js"><link rel="prefetch" href="/assets/js/63.ac5e7a71.js"><link rel="prefetch" href="/assets/js/64.ccc02967.js"><link rel="prefetch" href="/assets/js/65.543c9ff7.js"><link rel="prefetch" href="/assets/js/66.4b8131a8.js"><link rel="prefetch" href="/assets/js/67.0e690903.js"><link rel="prefetch" href="/assets/js/68.2aff0cff.js"><link rel="prefetch" href="/assets/js/69.192eeeee.js"><link rel="prefetch" href="/assets/js/7.368c0350.js"><link rel="prefetch" href="/assets/js/70.b52584ac.js"><link rel="prefetch" href="/assets/js/71.36a19599.js"><link rel="prefetch" href="/assets/js/72.9f13ca31.js"><link rel="prefetch" href="/assets/js/73.27c81fb7.js"><link rel="prefetch" href="/assets/js/74.fd0408a1.js"><link rel="prefetch" href="/assets/js/75.7a09263f.js"><link rel="prefetch" href="/assets/js/76.232b5252.js"><link rel="prefetch" href="/assets/js/77.4493ea6f.js"><link rel="prefetch" href="/assets/js/78.48d5a87c.js"><link rel="prefetch" href="/assets/js/79.8a784179.js"><link rel="prefetch" href="/assets/js/8.d250195f.js"><link rel="prefetch" href="/assets/js/80.d1a94db6.js"><link rel="prefetch" href="/assets/js/81.46d2cc59.js"><link rel="prefetch" href="/assets/js/82.8d2109b0.js"><link rel="prefetch" href="/assets/js/83.fa79cd42.js"><link rel="prefetch" href="/assets/js/84.32bbde64.js"><link rel="prefetch" href="/assets/js/85.87e66000.js"><link rel="prefetch" href="/assets/js/86.c57b4846.js"><link rel="prefetch" href="/assets/js/87.2e92d4cf.js"><link rel="prefetch" href="/assets/js/88.0e951151.js"><link rel="prefetch" href="/assets/js/89.b9d398e6.js"><link rel="prefetch" href="/assets/js/9.ddd09617.js"><link rel="prefetch" href="/assets/js/90.2d3d5d2d.js"><link rel="prefetch" href="/assets/js/91.a0321263.js"><link rel="prefetch" href="/assets/js/92.5c0eabfe.js"><link rel="prefetch" href="/assets/js/93.23398d7a.js"><link rel="prefetch" href="/assets/js/94.36ade5b0.js"><link rel="prefetch" href="/assets/js/95.bba70dd1.js"><link rel="prefetch" href="/assets/js/96.7418a5da.js"><link rel="prefetch" href="/assets/js/97.dcc6d772.js"><link rel="prefetch" href="/assets/js/98.94f9e4b6.js"><link rel="prefetch" href="/assets/js/99.8c40a74c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b5f0b03a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Zhaoxu Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/1.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  博文
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="归档" class="dropdown-title"><span class="title">归档</span> <span class="arrow down"></span></button> <button type="button" aria-label="归档" class="mobile-dropdown-title"><span class="title">归档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/go/1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/document/java/1.html" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/document/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/document/webpack/introduction.html" class="nav-link">
+  webpack5
+</a></li><li class="dropdown-item"><!----> <a href="/document/tensorflow/1.html" class="nav-link">
+  tensorflow
+</a></li><li class="dropdown-item"><!----> <a href="/document/mysql/1.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/document/nodejs/1.html" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/document/interview/javascript.html" class="nav-link">
+  面试
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/2.html" class="nav-link">
+  算法
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/1.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  博文
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="归档" class="dropdown-title"><span class="title">归档</span> <span class="arrow down"></span></button> <button type="button" aria-label="归档" class="mobile-dropdown-title"><span class="title">归档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/go/1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/document/java/1.html" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/document/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/document/webpack/introduction.html" class="nav-link">
+  webpack5
+</a></li><li class="dropdown-item"><!----> <a href="/document/tensorflow/1.html" class="nav-link">
+  tensorflow
+</a></li><li class="dropdown-item"><!----> <a href="/document/mysql/1.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/document/nodejs/1.html" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/document/interview/javascript.html" class="nav-link">
+  面试
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/2.html" class="nav-link">
+  算法
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>博文</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/6.html" class="sidebar-link">webpack5核心打包原理</a></li><li><a href="/blog/5.html" class="sidebar-link">Promise</a></li><li><a href="/blog/4.html" class="sidebar-link">十大经典排序算法（javascript实现）</a></li><li><a href="/blog/3.html" class="sidebar-link">process.cwd(), __dirname 区别</a></li><li><a href="/blog/2.html" class="sidebar-link">offsetTop, scrollTop, scrollHeight, offsetHeight 等API</a></li><li><a href="/blog/1.html" aria-current="page" class="active sidebar-link">IntersectionObserver API</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="intersectionobserver-api"><a href="#intersectionobserver-api" class="header-anchor">#</a> IntersectionObserver API</h1> <p>时间：2023.09.07</p> <p>当网页动效较多，常常需要对某些元素是否进入了视口（viewport）进行判断。往往我们采用的方式是通过监听scroll事件、通过类似这样的代码进行判断。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">isElementInViewport</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> viewPortHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight
+  <span class="token keyword">const</span> scrollTop <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollTop
+  <span class="token keyword">return</span> element<span class="token punctuation">.</span>offsetTop <span class="token operator">-</span> scrollTop <span class="token operator">&lt;=</span> viewPortHeight
+<span class="token punctuation">}</span>
+</code></pre></div><p>或者</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">isElementInViewport</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> rect <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    rect<span class="token punctuation">.</span>top <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
+    rect<span class="token punctuation">.</span>left <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
+    rect<span class="token punctuation">.</span>bottom <span class="token operator">&lt;=</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerHeight <span class="token operator">||</span> document<span class="token punctuation">.</span> documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+    rect<span class="token punctuation">.</span>right <span class="token operator">&lt;=</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerWidth <span class="token operator">||</span> document<span class="token punctuation">.</span> documentElement<span class="token punctuation">.</span>clientWidth<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>查阅文档还有一种方法：<code>IntersectionObserver</code> API</p> <p>IntersectionObserver API 提供了一种异步检测目标元素与祖先元素或相交情况变化的方法。在目标元素与视口或者其他指定元素发生交集时和触发配置的回调函数。</p> <h2 id="用法"><a href="#用法" class="header-anchor">#</a> 用法</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> io <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntersectionObserver</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> option<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 开始观察</span>
+io<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'example'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 停止观察</span>
+io<span class="token punctuation">.</span><span class="token function">unobserve</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 关闭观察器</span>
+io<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="callback参数"><a href="#callback参数" class="header-anchor">#</a> callback参数</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 每个成员都是一个IntersectionObserverEntry对象。举例来说，如果同时有两个被观察的对象的可见性发生变化，entries数组就会有两个成员。</span>
+
+<span class="token function-variable function">callback</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">entries</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// entries返回值</span>
+<span class="token punctuation">{</span>
+  time<span class="token operator">:</span> <span class="token number">3893.92</span><span class="token punctuation">,</span>
+  rootBounds<span class="token operator">:</span> ClientRect <span class="token punctuation">{</span>
+    bottom<span class="token operator">:</span> <span class="token number">920</span><span class="token punctuation">,</span>
+    height<span class="token operator">:</span> <span class="token number">1024</span><span class="token punctuation">,</span>
+    left<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    right<span class="token operator">:</span> <span class="token number">1024</span><span class="token punctuation">,</span>
+    top<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    width<span class="token operator">:</span> <span class="token number">920</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  boundingClientRect<span class="token operator">:</span> ClientRect <span class="token punctuation">{</span>
+     <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  intersectionRect<span class="token operator">:</span> ClientRect <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  intersectionRatio<span class="token operator">:</span> <span class="token number">0.54</span><span class="token punctuation">,</span>
+  target<span class="token operator">:</span> element
+<span class="token punctuation">}</span>
+
+</code></pre></div><ol><li><p>time：可见性发生变化的时间，是一个高精度时间戳，单位为毫秒</p></li> <li><p>target：被观察的目标元素，是一个 DOM 节点对象</p></li> <li><p>rootBounds：根元素的矩形区域的信息，getBoundingClientRect()方法的返回值，如果没有根元素（即直接相对于视口滚动），则返回null</p></li> <li><p>boundingClientRect：目标元素的矩形区域的信息</p></li> <li><p>intersectionRect：目标元素与视口（或根元素）的交叉区域的信息</p></li> <li><p>intersectionRatio：目标元素的可见比例，即intersectionRect占boundingClientRect的比例，完全可见时为1，完全不可见时小于等于0</p></li> <li><p>isIntersecting: 如果返回 true, 则描述了变换到交叉时的状态; 如果返回 false, 变换是从交叉状态到非交叉状态。</p></li></ol> <h3 id="option"><a href="#option" class="header-anchor">#</a> option</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">new</span> <span class="token class-name">IntersectionObserver</span><span class="token punctuation">(</span>
+  <span class="token parameter">entries</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+  <span class="token punctuation">{</span>
+    threshold<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.75</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>用户可以自定义这个数组。比如，<code>[0, 0.25, 0.5, 0.75, 1]</code> 就表示当目标元素 0%、25%、50%、75%、100% 可见时，会触发回调函数。</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>但是要注意的一点是：IntersectionObserver API 是异步的，不随着目标元素的滚动同步触发。</p> <p>IntersectionObserver的实现，应该采用requestIdleCallback()，即只有线程空闲下来，才会执行观察器。这意味着，这个观察器的优先级非常低，只在其他任务执行完，浏览器有了空闲才会执行。</p></div> <p>参考：</p> <p><a href="https://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html" target="_blank" rel="noopener noreferrer">阮一峰 Intersection Observer API<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API" target="_blank" rel="noopener noreferrer">MDN Intersection Observer API<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/2.html" class="prev">
+        offsetTop, scrollTop, scrollHeight, offsetHeight 等API
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.07bc8ac9.js" defer></script><script src="/assets/js/2.54df97aa.js" defer></script><script src="/assets/js/12.5d143ad4.js" defer></script>
+  </body>
+</html>

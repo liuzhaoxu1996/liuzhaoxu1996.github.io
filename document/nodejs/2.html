@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>koa 连接 mongodb | Zhaoxu Liu</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Zhaoxu Liu">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.b5f0b03a.css" as="style"><link rel="preload" href="/assets/js/app.07bc8ac9.js" as="script"><link rel="preload" href="/assets/js/2.54df97aa.js" as="script"><link rel="preload" href="/assets/js/92.5c0eabfe.js" as="script"><link rel="prefetch" href="/assets/js/10.f289ec56.js"><link rel="prefetch" href="/assets/js/100.9d553a15.js"><link rel="prefetch" href="/assets/js/101.30d35580.js"><link rel="prefetch" href="/assets/js/102.b5ba3877.js"><link rel="prefetch" href="/assets/js/103.5f080aeb.js"><link rel="prefetch" href="/assets/js/104.ab7af729.js"><link rel="prefetch" href="/assets/js/105.93deeee5.js"><link rel="prefetch" href="/assets/js/106.bc89b6d0.js"><link rel="prefetch" href="/assets/js/107.dac720bd.js"><link rel="prefetch" href="/assets/js/108.1f3bb1dd.js"><link rel="prefetch" href="/assets/js/109.4ceac602.js"><link rel="prefetch" href="/assets/js/11.e64c384a.js"><link rel="prefetch" href="/assets/js/110.4605645b.js"><link rel="prefetch" href="/assets/js/111.cc1ef84e.js"><link rel="prefetch" href="/assets/js/12.5d143ad4.js"><link rel="prefetch" href="/assets/js/13.6227cbaa.js"><link rel="prefetch" href="/assets/js/14.d52677da.js"><link rel="prefetch" href="/assets/js/15.4fa77a68.js"><link rel="prefetch" href="/assets/js/16.57c8322b.js"><link rel="prefetch" href="/assets/js/17.4b245436.js"><link rel="prefetch" href="/assets/js/18.1b195508.js"><link rel="prefetch" href="/assets/js/19.db2151d7.js"><link rel="prefetch" href="/assets/js/20.f3f9df2a.js"><link rel="prefetch" href="/assets/js/21.51f62eb2.js"><link rel="prefetch" href="/assets/js/22.977925cc.js"><link rel="prefetch" href="/assets/js/23.8efab876.js"><link rel="prefetch" href="/assets/js/24.4ee586eb.js"><link rel="prefetch" href="/assets/js/25.11ba3208.js"><link rel="prefetch" href="/assets/js/26.1de172c6.js"><link rel="prefetch" href="/assets/js/27.f0311b69.js"><link rel="prefetch" href="/assets/js/28.fae550dc.js"><link rel="prefetch" href="/assets/js/29.7b8b91e6.js"><link rel="prefetch" href="/assets/js/3.1a64a66a.js"><link rel="prefetch" href="/assets/js/30.0e1868ab.js"><link rel="prefetch" href="/assets/js/31.06222bc4.js"><link rel="prefetch" href="/assets/js/32.47450fe1.js"><link rel="prefetch" href="/assets/js/33.bacbefde.js"><link rel="prefetch" href="/assets/js/34.27dd37c1.js"><link rel="prefetch" href="/assets/js/35.0b361b38.js"><link rel="prefetch" href="/assets/js/36.691f2c9d.js"><link rel="prefetch" href="/assets/js/37.19d2da36.js"><link rel="prefetch" href="/assets/js/38.8ec9b94d.js"><link rel="prefetch" href="/assets/js/39.fabfcff6.js"><link rel="prefetch" href="/assets/js/4.18b7f171.js"><link rel="prefetch" href="/assets/js/40.3dc66611.js"><link rel="prefetch" href="/assets/js/41.889ab4e5.js"><link rel="prefetch" href="/assets/js/42.33865746.js"><link rel="prefetch" href="/assets/js/43.2073ebe1.js"><link rel="prefetch" href="/assets/js/44.0fbfc8ea.js"><link rel="prefetch" href="/assets/js/45.c5795cee.js"><link rel="prefetch" href="/assets/js/46.3ab420b3.js"><link rel="prefetch" href="/assets/js/47.b447b4a8.js"><link rel="prefetch" href="/assets/js/48.f7c3f597.js"><link rel="prefetch" href="/assets/js/49.9d165572.js"><link rel="prefetch" href="/assets/js/5.718994b1.js"><link rel="prefetch" href="/assets/js/50.3cc9de09.js"><link rel="prefetch" href="/assets/js/51.472663c3.js"><link rel="prefetch" href="/assets/js/52.11796b68.js"><link rel="prefetch" href="/assets/js/53.b1e7bf26.js"><link rel="prefetch" href="/assets/js/54.0fcce785.js"><link rel="prefetch" href="/assets/js/55.1d1cc58b.js"><link rel="prefetch" href="/assets/js/56.413107d6.js"><link rel="prefetch" href="/assets/js/57.705d29b5.js"><link rel="prefetch" href="/assets/js/58.69b8f4be.js"><link rel="prefetch" href="/assets/js/59.dc4ad713.js"><link rel="prefetch" href="/assets/js/6.eafd2c6f.js"><link rel="prefetch" href="/assets/js/60.03da4f70.js"><link rel="prefetch" href="/assets/js/61.dcae5138.js"><link rel="prefetch" href="/assets/js/62.b5787962.js"><link rel="prefetch" href="/assets/js/63.ac5e7a71.js"><link rel="prefetch" href="/assets/js/64.ccc02967.js"><link rel="prefetch" href="/assets/js/65.543c9ff7.js"><link rel="prefetch" href="/assets/js/66.4b8131a8.js"><link rel="prefetch" href="/assets/js/67.0e690903.js"><link rel="prefetch" href="/assets/js/68.2aff0cff.js"><link rel="prefetch" href="/assets/js/69.192eeeee.js"><link rel="prefetch" href="/assets/js/7.368c0350.js"><link rel="prefetch" href="/assets/js/70.b52584ac.js"><link rel="prefetch" href="/assets/js/71.36a19599.js"><link rel="prefetch" href="/assets/js/72.9f13ca31.js"><link rel="prefetch" href="/assets/js/73.27c81fb7.js"><link rel="prefetch" href="/assets/js/74.fd0408a1.js"><link rel="prefetch" href="/assets/js/75.7a09263f.js"><link rel="prefetch" href="/assets/js/76.232b5252.js"><link rel="prefetch" href="/assets/js/77.4493ea6f.js"><link rel="prefetch" href="/assets/js/78.48d5a87c.js"><link rel="prefetch" href="/assets/js/79.8a784179.js"><link rel="prefetch" href="/assets/js/8.d250195f.js"><link rel="prefetch" href="/assets/js/80.d1a94db6.js"><link rel="prefetch" href="/assets/js/81.46d2cc59.js"><link rel="prefetch" href="/assets/js/82.8d2109b0.js"><link rel="prefetch" href="/assets/js/83.fa79cd42.js"><link rel="prefetch" href="/assets/js/84.32bbde64.js"><link rel="prefetch" href="/assets/js/85.87e66000.js"><link rel="prefetch" href="/assets/js/86.c57b4846.js"><link rel="prefetch" href="/assets/js/87.2e92d4cf.js"><link rel="prefetch" href="/assets/js/88.0e951151.js"><link rel="prefetch" href="/assets/js/89.b9d398e6.js"><link rel="prefetch" href="/assets/js/9.ddd09617.js"><link rel="prefetch" href="/assets/js/90.2d3d5d2d.js"><link rel="prefetch" href="/assets/js/91.a0321263.js"><link rel="prefetch" href="/assets/js/93.23398d7a.js"><link rel="prefetch" href="/assets/js/94.36ade5b0.js"><link rel="prefetch" href="/assets/js/95.bba70dd1.js"><link rel="prefetch" href="/assets/js/96.7418a5da.js"><link rel="prefetch" href="/assets/js/97.dcc6d772.js"><link rel="prefetch" href="/assets/js/98.94f9e4b6.js"><link rel="prefetch" href="/assets/js/99.8c40a74c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b5f0b03a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Zhaoxu Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/1.html" class="nav-link">
+  博文
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="归档" class="dropdown-title"><span class="title">归档</span> <span class="arrow down"></span></button> <button type="button" aria-label="归档" class="mobile-dropdown-title"><span class="title">归档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/go/1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/document/java/1.html" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/document/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/document/webpack/introduction.html" class="nav-link">
+  webpack5
+</a></li><li class="dropdown-item"><!----> <a href="/document/tensorflow/1.html" class="nav-link">
+  tensorflow
+</a></li><li class="dropdown-item"><!----> <a href="/document/mysql/1.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/document/nodejs/1.html" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/document/interview/javascript.html" class="nav-link">
+  面试
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/2.html" class="nav-link">
+  算法
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/1.html" class="nav-link">
+  博文
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="归档" class="dropdown-title"><span class="title">归档</span> <span class="arrow down"></span></button> <button type="button" aria-label="归档" class="mobile-dropdown-title"><span class="title">归档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/go/1.html" class="nav-link">
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/document/java/1.html" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/document/flutter/init.html" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/document/webpack/introduction.html" class="nav-link">
+  webpack5
+</a></li><li class="dropdown-item"><!----> <a href="/document/tensorflow/1.html" class="nav-link">
+  tensorflow
+</a></li><li class="dropdown-item"><!----> <a href="/document/mysql/1.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/document/nodejs/1.html" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/document/interview/javascript.html" class="nav-link">
+  面试
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="读书笔记" class="dropdown-title"><span class="title">读书笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="读书笔记" class="mobile-dropdown-title"><span class="title">读书笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/book/functional/first.html" class="nav-link">
+  JavaScript函数式编程指南
+</a></li><li class="dropdown-item"><!----> <a href="/book/professional/1.html" class="nav-link">
+  JavaScript高级程序设计
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/2.html" class="nav-link">
+  算法
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>nodejs</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/nodejs/1.html" class="sidebar-link">koa 实现上传图片功能</a></li><li><a href="/document/nodejs/2.html" aria-current="page" class="active sidebar-link">koa 连接 mongodb</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/document/nodejs/2.html#各式各样的数据库" class="sidebar-link">各式各样的数据库</a></li><li class="sidebar-sub-header"><a href="/document/nodejs/2.html#为什么要用-nosql" class="sidebar-link">为什么要用 NoSql ？</a></li><li class="sidebar-sub-header"><a href="/document/nodejs/2.html#简单尝试下-用户模块" class="sidebar-link">简单尝试下：用户模块</a></li></ul></li><li><a href="/document/nodejs/3.html" class="sidebar-link">koa实现知乎问题模块接口</a></li><li><a href="/document/nodejs/4.html" class="sidebar-link">koa实现知乎关注与粉丝的数据结构</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="koa-连接-mongodb"><a href="#koa-连接-mongodb" class="header-anchor">#</a> koa 连接 mongodb</h1> <h2 id="各式各样的数据库"><a href="#各式各样的数据库" class="header-anchor">#</a> 各式各样的数据库</h2> <ul><li><p>mongodb: 按照文档（Json结构）来存储</p></li> <li><p>Redis: key-value存储</p></li> <li><p>FlockDB: 图存储</p></li> <li><p>HBase: 列存储</p></li></ul> <h2 id="为什么要用-nosql"><a href="#为什么要用-nosql" class="header-anchor">#</a> 为什么要用 NoSql ？</h2> <ul><li><p>简单（没有原子性、一致性、隔离性等复杂规范）</p></li> <li><p>便于横向拓展</p></li> <li><p>适合超大规模数据的存储</p></li> <li><p>很灵活地存储复杂结构的数据</p></li></ul> <h2 id="简单尝试下-用户模块"><a href="#简单尝试下-用户模块" class="header-anchor">#</a> 简单尝试下：用户模块</h2> <ol><li>安装 Mongoose 连接 MongoDB</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">yarn</span> <span class="token function">add</span> mongoose -S
+</code></pre></div><ol start="2"><li>连接 Mongodb</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { useNewUrlParser: true } 新版mongo都加这个配置</span>
+mongoose<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">'mongodb+src://xxx:xxx'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> useNewUrlParser<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'连接成功'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 如果出错，也打印出错信息</span>
+mongoose<span class="token punctuation">.</span>connection<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> console<span class="token punctuation">.</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>设计目录结构</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>app <span class="token operator">-</span> 
+    <span class="token operator">|</span><span class="token operator">-</span>controller <span class="token comment">// 控制器目录 </span>
+    <span class="token operator">|</span><span class="token operator">-</span>routes     <span class="token comment">// 路由目录, 路由里面具体的操作交给控制器操作</span>
+    <span class="token operator">|</span><span class="token operator">-</span>models     <span class="token comment">// 数据库模型目录</span>
+</code></pre></div><ul><li>routes/users.js</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> Router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-router'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span> prefix<span class="token operator">:</span> <span class="token string">'/users'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> find<span class="token punctuation">,</span> findById<span class="token punctuation">,</span> create<span class="token punctuation">,</span> update<span class="token punctuation">,</span> <span class="token keyword">delete</span><span class="token operator">:</span>del <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../controllers/user'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> find<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> create<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/:id'</span><span class="token punctuation">,</span> findById<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'/:id'</span><span class="token punctuation">,</span> update<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'/:id'</span><span class="token punctuation">,</span> del<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span>
+</code></pre></div><ol start="4"><li>设计用户模块的Schema</li></ol> <ul><li>分析用户模块的属性</li> <li>编写用户模块的Schema</li> <li>使用Schema生成用户Model</li></ul> <p>设计Schema，一般我们会放在models目录下：如：app/models/users.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> Schema<span class="token punctuation">,</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> mongoose<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> userSchema <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Schema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  __v<span class="token operator">:</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> Number<span class="token punctuation">,</span>
+    <span class="token comment">// 接口返回不展示该字段</span>
+    select<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+    required<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  password<span class="token operator">:</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+    required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">// 接口返回不展示该字段</span>
+    select<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// model('User', userSchema); 声明 User 集合, 用户模型就建好了</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">model</span><span class="token punctuation">(</span><span class="token string">'User'</span><span class="token punctuation">,</span> userSchema<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="4"><li>使用Mongoose进行增删改查</li></ol> <p>在操作数据库时，我们一般再controller中进行: app/controllers/users.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../models/users'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">async</span> <span class="token function">findById</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">'用户不存在'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> user<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">async</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span><span class="token function">verifyParams</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span> required<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> user<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span><span class="token function">verifyParams</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span> required<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">findByIdAndUpdate</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">,</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">'用户不存在'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> user<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">async</span> <span class="token keyword">delete</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">findByIdAndRemove</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">'用户不存在'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> user<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/document/nodejs/1.html" class="prev">
+        koa 实现上传图片功能
+      </a></span> <span class="next"><a href="/document/nodejs/3.html">
+        koa实现知乎问题模块接口
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.07bc8ac9.js" defer></script><script src="/assets/js/2.54df97aa.js" defer></script><script src="/assets/js/92.5c0eabfe.js" defer></script>
+  </body>
+</html>
